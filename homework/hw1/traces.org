@@ -1,0 +1,18 @@
+Jake Israel
+
+CS 511
+
+Prof. E Bonelli
+
+September 9, 2016
+* Problem 1
+1. State Diagram [[./state-diagram.png][State Diagram]]
+2. Traces
+   1. -->[P4, Q9, 0]-->[P5, Q9, 0]-->[P4, Q9, 0]-->[P4, Q10, 1]-->[P5, Q10, 1]-->[P4, Q10, 1]-->[P5, Q10, 1]-->[P5, -, 2]-->[P4, -, 2]-->[-, -, 2]
+   2. -->[P4, Q9, 0]-->[P5, Q9, 0]-->[P4, Q9, 0]-->[P5, Q9, 0]-->[P4, Q9, 0]-->[P4, Q10, 1]-->[P5, Q10, 1]-->[P5, -, 2]-->[P4, -, 2]-->[-, -, 2]
+   3. -->[P4, Q9, 0]-->[P5, Q9, 0]-->[P4, Q9, 0]-->[P5, Q9, 0]-->[P5, Q10, 1]-->[P5, -, 2]-->[P4, -, 2]-->[-, -, 2]
+3. No. If thread Q executes entirely before thread P (and in other cases as well), 2 will never appear in the output
+4. At most once. Once it has printed 2 and returns to check the condition, the thread will terminate
+5. 0 to infinite times. Assuming thread Q never gets switched to after incrementing once, Thread P can loop an infinite number of times
+6. 0 to infinite times. Assuming thread Q never gets switched to, Thread P can loop infinitely printing 0.
+7. A length of 0, or an empty string. Assuming Thread Q is run entirely before Thread P ever runs, nothing will be printed.
