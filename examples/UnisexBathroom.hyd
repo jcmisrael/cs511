@@ -1,0 +1,26 @@
+global Semaphore restroom = new Semaphore(500);
+global int i = 0;
+
+for(i = 0; i < 1000; i++){
+  {
+    int local = i;
+    thread Men: {
+      restroom.acquire();
+      print(local + " man in the restroom");
+      sleep(1000);
+      restroom.release();
+    }
+  }
+}
+  
+for(i = 0; i < 1000; i++){
+  {
+    int local = i;
+    thread Women: {
+      restroom.acquire();
+      print(local + " women in the restroom");
+      sleep(100);
+      restroom.release();
+    }
+  }
+} 
