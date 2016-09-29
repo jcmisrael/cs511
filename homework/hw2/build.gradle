@@ -1,8 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'edu.stevens.jisrael.cs511.assignment2.HelloThreadRunnable'
-version = '0.1.0'
+mainClassName = 'edu.stevens.jisrael.cs511.assignment2.Assignment2'
+version = '1.0.0'
 
 sourceCompatibility = '1.7'
 targetCompatibility = '1.7'
@@ -13,6 +13,6 @@ jar {
   manifest {
     attributes ('Implementation-Title': 'GymSimulator',
                 'Implementation-Version': version,
-                'Main-Class': 'edu.stevens.jisrael.cs511.assignment2.HelloThreadRunnable')
+                'Main-Class': 'edu.stevens.jisrael.cs511.assignment2.Assignment2')
   }
 }
