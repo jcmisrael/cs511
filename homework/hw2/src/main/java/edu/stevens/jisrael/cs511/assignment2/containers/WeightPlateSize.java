@@ -11,10 +11,16 @@ import java.util.Arrays;
 // Random code from
 // https://stackoverflow.com/questions/1972392/java-pick-a-random-value-from-an-enum
 public enum WeightPlateSize {
-    SMALL_3KG, MEDIUM_5KG, LARGE_10KG;
+    SMALL_3KG(0), MEDIUM_5KG(1), LARGE_10KG(2);
 
-    private static final List<WeightPlateSize> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
-    private static final int SIZE = VALUES.size();
+
+    public int index;
+    WeightPlateSize(int _index){
+        this.index = _index;
+    }
+
+    public static final List<WeightPlateSize> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+    public static final int SIZE = VALUES.size();
     private static final Random RANDOM = new Random();
 
     public static WeightPlateSize randomApparatus() {
