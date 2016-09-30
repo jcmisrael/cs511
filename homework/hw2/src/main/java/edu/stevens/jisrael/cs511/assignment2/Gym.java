@@ -83,6 +83,7 @@ public class Gym implements Runnable {
         int id;
         Random r = new Random();
         int i = 0;
+        System.out.println("The Gym is now open!");
         while(i < Gym.GYM_REGISTERED_SIZE){
             do {
                 id = r.nextInt(Integer.MAX_VALUE);
@@ -91,6 +92,7 @@ public class Gym implements Runnable {
             executor.execute(c);
             ++i;
         }
+        System.out.println("The Gym is now closed!");
         executor.shutdown();
     }
 }
