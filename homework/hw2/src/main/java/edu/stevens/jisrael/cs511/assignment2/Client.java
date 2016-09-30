@@ -51,16 +51,13 @@ public class Client implements Runnable {
     public void run(){
         for(Exercise e: routine){
             try{
-                System.out.println("Client " + this.id + " grabbing weights");
+                System.out.println("Client " + this.id + " starting exercise: " + e);
                 gym.grabWeights(e.weights);
-                System.out.println("Client " + this.id + " grabbed weights");
-                System.out.println("Client " + this.id + " acquiring apparatuses");
                 gym.apparatuses[e.at.index].acquire();
-                System.out.println("Client " + this.id + " working out");
                 Thread.sleep(e.duration);
-                System.out.println("Client " + this.id + " done working out");
                 gym.apparatuses[e.at.index].release();
                 gym.releaseWeights(e.weights);
+                System.out.println("Client " + this.id + " finished exercise: " + e);
             } catch (Exception ec){
                 ec.printStackTrace();
             }
