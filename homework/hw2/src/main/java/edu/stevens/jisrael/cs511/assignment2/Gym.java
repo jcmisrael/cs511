@@ -9,8 +9,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class Gym implements Runnable {
+    // Final variables
     private static final int GYM_SIZE = 30;
     private static final int GYM_REGISTERED_SIZE = 10000;
     private static final int NUM_APPARATUSES = 5;
@@ -22,6 +26,7 @@ public class Gym implements Runnable {
     public Semaphore[] apparatuses;
     private Semaphore[] weights;
     private Semaphore canGrabWeights;
+    private Set<Integer> ids;
 
     public void grabWeights(Map<WeightPlateSize, Integer> numWeights){
         int i;
@@ -67,16 +72,24 @@ public class Gym implements Runnable {
             noOfWeights.put(w, NUM_EACH_WEIGHT[w.index]);
             weights[w.index] = new Semaphore(Gym.NUM_EACH_WEIGHT[w.index]);
         }
+
         this.canGrabWeights = new Semaphore(1);
+
+        this.ids = new HashSet<Integer>();
     }
 
 
     public void run(){
-        int id = 0;
-        while(id < Gym.GYM_REGISTERED_SIZE){
+        int id;
+        Random r = new Random();
+        int i = 0;
+        while(i < Gym.GYM_REGISTERED_SIZE){
+            do {
+                id = r.nextInt(Integer.MAX_VALUE);
+            } while (!ids.add(id));
             Client c = Client.generateRandom(id, this);
             executor.execute(c);
-            ++id;
+            ++i;
         }
         executor.shutdown();
     }
