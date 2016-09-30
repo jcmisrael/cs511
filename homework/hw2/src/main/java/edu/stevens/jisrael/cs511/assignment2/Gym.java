@@ -1,5 +1,4 @@
 // Gym.java
-// Implementation for the Gym simulation
 
 package edu.stevens.jisrael.cs511.assignment2;
 
@@ -13,6 +12,14 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * Implementation of the gym class
+ * Has a set of semaphores representing weights, apparatuses, and
+ * an executor service
+ * @author: Jake Israel
+ * @version: 1.0.0
+ * @since 2016-09-30
+ */
 public class Gym implements Runnable {
     // Final variables
     private static final int GYM_SIZE = 30;
@@ -21,6 +28,7 @@ public class Gym implements Runnable {
     public static final int[] NUM_EACH_WEIGHT = {40, 30, 20};
     private static final int MUTEX = 1;
 
+    // Instance variables
     private HashMap<WeightPlateSize, Integer> noOfWeights;
     private ExecutorService executor;
     public Semaphore[] apparatuses;
@@ -28,6 +36,11 @@ public class Gym implements Runnable {
     private Semaphore canGrabWeights;
     private Set<Integer> ids;
 
+    /**
+     * Grabs a given amount of weights, blocking until it has acquired
+     * every weight semaphore it needs
+     * @param numWeights A map containing WeightPlateSize and quantity pairs
+     */
     public void grabWeights(Map<WeightPlateSize, Integer> numWeights){
         int i;
         try{
@@ -46,6 +59,10 @@ public class Gym implements Runnable {
         }
     }
 
+    /**
+     * Release weight semaphores, not requiring canGrabWeights semaphore
+     * @param numWeights A map containing WeightPlateSize and quantity pairs
+     */
     public void releaseWeights(Map<WeightPlateSize, Integer> numWeights){
         int i;
         for(i = 0; i < numWeights.get(WeightPlateSize.SMALL_3KG); ++i)
@@ -56,6 +73,10 @@ public class Gym implements Runnable {
             this.weights[WeightPlateSize.LARGE_10KG.index].release();
     }
 
+    /**
+     * Gym Constructor
+     * Initializes all variables based off given constants
+     */
     public Gym(){
         int i;
         int numApparatusTypes = ApparatusType.SIZE;
@@ -78,7 +99,12 @@ public class Gym implements Runnable {
         this.ids = new HashSet<Integer>();
     }
 
-
+    /**
+     * Overrides Threads run method
+     * Starts creating random clients and adds them to the gym
+     * to simulate a gym
+     */
+    @Override
     public void run(){
         int id;
         Random r = new Random();
