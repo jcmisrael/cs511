@@ -34,7 +34,7 @@ public class Exercise {
     }
 
     private static final Random RANDOM = new Random();
-    private static final int EXERCISE_DURATION_RANGE = 1000;
+    private static final int EXERCISE_DURATION_RANGE = 2;
     /**
      * Return a random Exercise
      * Optimized by keeping static final versions of the enum contents
@@ -46,7 +46,7 @@ public class Exercise {
         // Generate a random apparatus
         ApparatusType at = ApparatusType.randomApparatus();
         // Generate a random exercise duration
-        int duration = RANDOM.nextInt(Exercise.EXERCISE_DURATION_RANGE);
+        int duration = RANDOM.nextInt(Exercise.EXERCISE_DURATION_RANGE + 1); // Minimum of 1
         // Create a hashmap to contain weights of WeightPlateSize and random quantities
         HashMap numWeights = new HashMap();
         int count = 0;
@@ -67,7 +67,7 @@ public class Exercise {
             count += lgWeights;
             numWeights.put(WeightPlateSize.LARGE_10KG, lgWeights);
         }
-        Exercise e = new Exercise(at, numWeights, 0);
+        Exercise e = new Exercise(at, numWeights, duration);
         return e;
     }
 
