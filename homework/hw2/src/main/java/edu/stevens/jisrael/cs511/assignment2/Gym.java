@@ -118,7 +118,8 @@ public class Gym implements Runnable {
             executor.execute(c);
             ++i;
         }
-        System.out.println("The Gym is now closed!");
         executor.shutdown();
+        while(!executor.isTerminated()){}
+        System.out.println("The Gym is now closed!");
     }
 }
