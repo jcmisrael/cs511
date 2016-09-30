@@ -46,7 +46,7 @@ public class Exercise {
         // Generate a random apparatus
         ApparatusType at = ApparatusType.randomApparatus();
         // Generate a random exercise duration
-        int duration = RANDOM.nextInt(Exercise.EXERCISE_DURATION_RANGE + 1); // Minimum of 1
+        int duration = RANDOM.nextInt(Exercise.EXERCISE_DURATION_RANGE) + 1; // Minimum of 1
         // Create a hashmap to contain weights of WeightPlateSize and random quantities
         HashMap numWeights = new HashMap();
         int count = 0;
