@@ -45,4 +45,13 @@ public class Exercise {
         Exercise e = new Exercise(at, numWeights, 0);
         return e;
     }
+
+    public String toString(){
+        String s = "";
+        s += this.at.name() + " with";
+        for(WeightPlateSize w: WeightPlateSize.VALUES)
+            s += " " + weights.get(w) + " " + w.name();
+        s += " for " + duration + " seconds";
+        return s;
+    }
 }
