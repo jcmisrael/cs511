@@ -17,3 +17,8 @@ package { 'gradle':
   ensure => present,
   require => Exec['apt-get update'],
 }
+
+package { 'junit4':
+  ensure => present,
+  require => Exec['apt-get update'],
+}

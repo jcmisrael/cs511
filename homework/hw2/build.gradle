@@ -16,3 +16,7 @@ jar {
                 'Main-Class': 'edu.stevens.jisrael.cs511.assignment2.Assignment2')
   }
 }
+
+dependencies {
+  testCompile 'junit:junit:4.11'
+}
