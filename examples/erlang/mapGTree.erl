@@ -1,6 +1,6 @@
 -module(mapGTree).
 -compile(export_all).
--export([mapGTree/2, plus/1]).
+-export([mapGTree/2]).
 
 mapGTree(Func, {node, Number, []}) ->
     {node, Func(Number), []};
