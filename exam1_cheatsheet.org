@@ -1,0 +1,35 @@
+Jake Israel
+
+CS 511
+
+Prof. Bonelli
+
+Concurrency is study of interacting comp. progs which share resources and run concurrently
+
+Assumptions:
+- No shared vars in critical and non-critical sections
+- Crit section terminates
+- Scheduler is weakly fair (A process waiting will eventually be able to run)
+
+MEP
+- Mutex : One thread at a time
+- Absence of deadlock
+- Free from starvation
+
+Styles:
+Break symmetry
+take turns (+ + -) (Could loop in non-crit)
+
+states:
+- inactive
+- ready
+- running
+- blocked
+- completed
+
+R/W
+Service queue solution
+If first reader acquire resource, otherwise read because another reader is already in
+
+
+
