@@ -2,3 +2,4 @@
 *.class
 .vagrant
 *.beam
+*.tgz
