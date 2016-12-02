@@ -1,0 +1,13 @@
+* CS 511
+Provided is all relevant code and slides used and created for SIT - CS 511 - Concurrent Programming.
+
+** Running
+*** Java
+All java projects provide a runnable Makefile. A Vagrantfile is provided to initialize a dev environment with =java=, =gradle=, and =junit= installed. 
+*** Hydra 
+Hydra code (ending with =.hyd= file extensions) can be run using the provide =hydra.jar= file.
+*** Promela
+Promela code (ending with =.pml= file extensions) can be run using spin, or the gui frontend =spin.tcl=.\\
+Read more about spin at [[http://spinroot.com]]
+*** Erlang
+Erlang code can be compiled and run via =erl= and =erlc=
