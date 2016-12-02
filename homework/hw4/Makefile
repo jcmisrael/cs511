@@ -2,7 +2,7 @@ SOURCE = sensor.erl watcher.erl
 OUTPUTTAR = Jake.Israel.cs511.Assignment4.tgz
 OUTPUTZIP = Jake.Israel.cs511.Assignment4.zip
 
-all: clean compile run
+all: clean compile 
 
 clean:
 	-rm -f *.beam
@@ -10,8 +10,6 @@ clean:
 
 compile:
 	erlc $(SOURCE)
-
-run:
 
 tar:
 	tar -cvzf $(OUTPUTTAR) $(SOURCE) Makefile
